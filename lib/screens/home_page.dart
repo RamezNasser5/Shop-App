@@ -1,7 +1,6 @@
 import 'package:coffee_app/widgets/bottom_navigator_bar.dart';
+import 'package:coffee_app/widgets/column_navigation_bar.dart';
 import 'package:coffee_app/widgets/custom_search_icon.dart';
-import 'package:coffee_app/widgets/product_details.dart';
-import 'package:coffee_app/widgets/side_drinks.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -28,48 +27,39 @@ class HomePage extends StatelessWidget {
               fontFamily: 'Poppins', fontSize: 24, color: Color(0xFF542E45)),
         ),
       ),
-      body: const Column(
+      body: Stack(
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: 20.0, left: 70),
-            child: Text(
-              'welcome,',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.red,
-              ),
+          const ColumnBehindNavigationBar(),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                const BottomNavigatorBar(),
+                Positioned(
+                  bottom: 40,
+                  left: 170,
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.all(Radius.circular(30)),
+                    child: Container(
+                      width: 65,
+                      height: 65,
+                      color: const Color(0xffA52A2A),
+                      child: const Icon(
+                        Icons.home,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 10),
-            child: Text(
-              'Ramez Nasser',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 16,
-              ),
-            ),
-          ),
-          Row(
-            children: [
-              SideDrinks(),
-              Column(
-                children: [
-                  ProductDetails(),
-                  ProductDetails(),
-                ],
-              ),
-              Column(
-                children: [
-                  ProductDetails(),
-                  ProductDetails(),
-                ],
-              ),
-            ],
           ),
         ],
       ),
-      bottomNavigationBar: const BottomNavigatorBar(),
+      //bottomNavigationBar: const BottomNavigatorBar(),
       backgroundColor: const Color(0xffD9D9D9),
     );
   }

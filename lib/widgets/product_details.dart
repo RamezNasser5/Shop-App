@@ -55,6 +55,7 @@ class ProductDetails extends StatelessWidget {
                           r'$' '3.50',
                           style: TextStyle(
                             fontSize: 16,
+                            fontFamily: 'Poppins',
                           ),
                         ),
                         SizedBox(
@@ -106,7 +107,10 @@ class ProductDetails extends StatelessWidget {
                   ),
                   color: Color(0xffA52A2A),
                 ),
-                child: const Icon(Icons.add),
+                child: const Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
               ),
             )
           ],

@@ -6,17 +6,15 @@ class BottomNavigatorBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(70.0),
-        topRight: Radius.circular(70.0),
+      borderRadius: const BorderRadius.only(
+        topLeft: Radius.circular(100.0),
+        topRight: Radius.circular(100.0),
       ),
       child: SizedBox(
         height: 80,
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: const Color(0xff411530),
-          showSelectedLabels: true,
-          selectedItemColor: Colors.orange,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(
@@ -31,13 +29,6 @@ class BottomNavigatorBar extends StatelessWidget {
                 color: Colors.black,
               ),
               label: 'Details',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: Colors.black,
-              ),
-              label: 'Home',
             ),
             BottomNavigationBarItem(
               icon: Icon(

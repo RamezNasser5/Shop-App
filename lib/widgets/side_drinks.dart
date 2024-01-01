@@ -74,7 +74,9 @@ class SideDrinks extends StatelessWidget {
               ),
             ),
           ),
-          Spacer(),
+          Spacer(
+            flex: 2,
+          ),
         ],
       ),
     );
