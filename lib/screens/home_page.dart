@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
       body: const Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(right: 180.0),
+            padding: EdgeInsets.only(top: 20.0, left: 70),
             child: Text(
               'welcome,',
               style: TextStyle(
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(right: 130.0),
+            padding: EdgeInsets.only(left: 10),
             child: Text(
               'Ramez Nasser',
               style: TextStyle(
@@ -52,10 +52,7 @@ class HomePage extends StatelessWidget {
           ),
           Row(
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 40.0),
-                child: SideDrinks(),
-              ),
+              SideDrinks(),
               Column(
                 children: [
                   ProductDetails(),
