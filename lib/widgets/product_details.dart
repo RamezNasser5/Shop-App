@@ -1,3 +1,4 @@
+import 'package:coffee_app/screens/deatails_page.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetails extends StatelessWidget {
@@ -8,7 +9,11 @@ class ProductDetails extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return const DetailesPage();
+          }));
+        },
         child: Stack(
           clipBehavior: Clip.none,
           children: [
