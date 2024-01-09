@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "886531963136",
+    "project_id": "coffee-shop-8bcbd",
+    "storage_bucket": "coffee-shop-8bcbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886531963136:android:808576b7cb8f2d523c5be5",
+        "android_client_info": {
+          "package_name": "com.example.coffee_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC03XGcKJkeUMaHGa765kuk7kjIPjYqz_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
