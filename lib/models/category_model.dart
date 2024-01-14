@@ -5,7 +5,7 @@ class CategoryModel {
 
   CategoryModel({required this.categoryName});
 
-  factory CategoryModel.fromFirestore(DocumentSnapshot doc) {
-    return CategoryModel(categoryName: doc.id);
+  factory CategoryModel.fromFirestore(DocumentSnapshot docs) {
+    return CategoryModel(categoryName: docs.id);
   }
 }

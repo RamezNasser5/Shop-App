@@ -9,9 +9,9 @@ class ColumnBehindNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(top: 20.0, right: 170),
           child: Text(
             'welcome,',
@@ -21,7 +21,7 @@ class ColumnBehindNavigationBar extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(right: 120),
           child: Text(
             'Ramez Nasser',
@@ -33,7 +33,7 @@ class ColumnBehindNavigationBar extends StatelessWidget {
         ),
         Row(
           children: [
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(top: 70.0),
               child: SideDrinks(),
             ),
@@ -49,6 +49,15 @@ class ColumnBehindNavigationBar extends StatelessWidget {
                 ProductDetails(),
               ],
             ),
+            // GridView.builder(
+            //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            //     crossAxisCount: 2,
+            //   ),
+            //   itemCount: 4,
+            //   itemBuilder: ((context, index) {
+            //     return const ProductDetails();
+            //   }),
+            // ),
           ],
         ),
       ],
