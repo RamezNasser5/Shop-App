@@ -2,24 +2,23 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProductModel {
   final String title;
-  final String describtion;
+  final String description;
   final String price;
   final String rate;
 
-  ProductModel({
+  const ProductModel({
     required this.title,
-    required this.describtion,
+    required this.description,
     required this.price,
     required this.rate,
   });
 
-  factory ProductModel.fromFirestore(DocumentSnapshot docs) {
-    var data = docs.data() as Map<String, dynamic>;
+  factory ProductModel.fromFirestore(DocumentSnapshot doc) {
     return ProductModel(
-      title: data['Title'] ?? '',
-      describtion: data['description'] ?? '',
-      price: (data['price'] ?? 0.0),
-      rate: (data['rate'] ?? 0.0),
+      title: doc['title'] ?? '',
+      description: doc['description'] ?? '',
+      price: doc['price'] ?? '',
+      rate: doc['rate'] ?? '',
     );
   }
 }

@@ -13,7 +13,7 @@ class SideDrinks extends StatelessWidget {
             topRight: Radius.circular(70),
           ),
           color: Color(0xffA52A2A)),
-      width: 80,
+      width: 60,
       height: 612,
       child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,

@@ -1,8 +1,11 @@
+import 'package:coffee_app/models/product_model.dart';
 import 'package:coffee_app/screens/deatails_page.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key});
+  const ProductDetails({super.key, required this.productModel});
+
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +24,6 @@ class ProductDetails extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20),
               child: Container(
-                height: 180,
-                width: 130,
                 decoration: BoxDecoration(boxShadow: [
                   BoxShadow(
                     blurRadius: 30,
@@ -31,53 +32,48 @@ class ProductDetails extends StatelessWidget {
                     offset: const Offset(10, 10),
                   )
                 ]),
-                child: const Card(
+                child: Card(
                   elevation: 5,
                   child: Padding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 16.0, horizontal: 8),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 8.0,
+                      horizontal: 8,
+                    ),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Expresso',
-                          style: TextStyle(
-                            fontSize: 18,
+                          productModel.title,
+                          style: const TextStyle(
+                            fontSize: 12,
                             fontFamily: 'Poppins',
                           ),
                         ),
                         Text(
-                          'with milk',
-                          style: TextStyle(
+                          productModel.description,
+                          style: const TextStyle(
                             fontSize: 14,
                           ),
                         ),
-                        SizedBox(
-                          height: 6,
-                        ),
                         Text(
-                          r'$' '3.50',
-                          style: TextStyle(
-                            fontSize: 16,
+                          r'$' '${productModel.price}',
+                          style: const TextStyle(
+                            fontSize: 14,
                             fontFamily: 'Poppins',
                           ),
                         ),
-                        SizedBox(
-                          height: 6,
-                        ),
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.star,
                               color: Colors.yellowAccent,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                             Text(
-                              '4.5',
-                              style: TextStyle(
+                              productModel.rate,
+                              style: const TextStyle(
                                 fontSize: 18,
                               ),
                             ),
@@ -90,18 +86,18 @@ class ProductDetails extends StatelessWidget {
               ),
             ),
             const Positioned(
-              left: 60,
-              bottom: 160,
+              left: 95,
+              bottom: 120,
               child: CircleAvatar(
-                radius: 30,
+                radius: 25,
                 backgroundImage: AssetImage(
                   'assets/4.jpeg',
                 ),
               ),
             ),
             Positioned(
-              left: 95,
-              top: 155,
+              left: 120,
+              top: 90,
               child: Container(
                 height: 42,
                 width: 42,
