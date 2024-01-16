@@ -1,4 +1,6 @@
+import 'package:coffee_app/cubits/categories_cubit/categories_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SideDrinks extends StatelessWidget {
   const SideDrinks({
@@ -15,34 +17,46 @@ class SideDrinks extends StatelessWidget {
           color: Color(0xffA52A2A)),
       width: 60,
       height: 612,
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Spacer(),
+          const Spacer(),
           RotatedBox(
             quarterTurns: 3,
-            child: Text(
-              '.Ice Teas',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 16,
+            child: GestureDetector(
+              onTap: () {
+                BlocProvider.of<CategoriesCubit>(context)
+                    .changeCategoryName(newCategoryName: 'IceTeas');
+              },
+              child: const Text(
+                '.Ice Teas',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 16,
+                ),
               ),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           RotatedBox(
             quarterTurns: 3,
-            child: Text(
-              '.Hot Coffee',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 16,
-                color: Colors.white,
+            child: GestureDetector(
+              onTap: () {
+                BlocProvider.of<CategoriesCubit>(context)
+                    .changeCategoryName(newCategoryName: 'Hot Coffee');
+              },
+              child: Text(
+                '.Hot Coffee',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 16,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
-          Spacer(),
-          RotatedBox(
+          const Spacer(),
+          const RotatedBox(
             quarterTurns: 3,
             child: Text(
               '.Hot Teas',
@@ -52,8 +66,8 @@ class SideDrinks extends StatelessWidget {
               ),
             ),
           ),
-          Spacer(),
-          RotatedBox(
+          const Spacer(),
+          const RotatedBox(
             quarterTurns: 3,
             child: Text(
               '.Drinks',
@@ -63,8 +77,8 @@ class SideDrinks extends StatelessWidget {
               ),
             ),
           ),
-          Spacer(),
-          RotatedBox(
+          const Spacer(),
+          const RotatedBox(
             quarterTurns: 3,
             child: Text(
               '.Bakery',
@@ -74,7 +88,7 @@ class SideDrinks extends StatelessWidget {
               ),
             ),
           ),
-          Spacer(
+          const Spacer(
             flex: 2,
           ),
         ],
