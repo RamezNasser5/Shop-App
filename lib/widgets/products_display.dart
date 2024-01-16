@@ -15,7 +15,8 @@ class ProductsDisplay extends StatelessWidget {
         height: 500,
         width: MediaQuery.of(context).size.width,
         child: StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance.collection('IceTeas').snapshots(),
+          stream:
+              FirebaseFirestore.instance.collection('Hot Coffee').snapshots(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return const Center(child: CircularProgressIndicator());
