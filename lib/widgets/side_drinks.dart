@@ -45,7 +45,7 @@ class SideDrinks extends StatelessWidget {
                 BlocProvider.of<CategoriesCubit>(context)
                     .changeCategoryName(newCategoryName: 'Hot Coffee');
               },
-              child: Text(
+              child: const Text(
                 '.Hot Coffee',
                 style: TextStyle(
                   fontFamily: 'Poppins',
@@ -56,35 +56,53 @@ class SideDrinks extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const RotatedBox(
-            quarterTurns: 3,
-            child: Text(
-              '.Hot Teas',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 16,
+          GestureDetector(
+            onTap: () {
+              BlocProvider.of<CategoriesCubit>(context)
+                  .changeCategoryName(newCategoryName: 'Hot Teas');
+            },
+            child: const RotatedBox(
+              quarterTurns: 3,
+              child: Text(
+                '.Hot Teas',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 16,
+                ),
               ),
             ),
           ),
           const Spacer(),
-          const RotatedBox(
-            quarterTurns: 3,
-            child: Text(
-              '.Drinks',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 16,
+          GestureDetector(
+            onTap: () {
+              BlocProvider.of<CategoriesCubit>(context)
+                  .changeCategoryName(newCategoryName: 'Drinks');
+            },
+            child: const RotatedBox(
+              quarterTurns: 3,
+              child: Text(
+                '.Drinks',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 16,
+                ),
               ),
             ),
           ),
           const Spacer(),
-          const RotatedBox(
-            quarterTurns: 3,
-            child: Text(
-              '.Bakery',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 16,
+          GestureDetector(
+            onTap: () {
+              BlocProvider.of<CategoriesCubit>(context)
+                  .changeCategoryName(newCategoryName: 'Bakery');
+            },
+            child: const RotatedBox(
+              quarterTurns: 3,
+              child: Text(
+                '.Bakery',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 16,
+                ),
               ),
             ),
           ),
