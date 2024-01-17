@@ -9,108 +9,300 @@ class SideDrinks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(70),
-          ),
-          color: Color(0xffA52A2A)),
-      width: 60,
-      height: 612,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Spacer(),
-          RotatedBox(
-            quarterTurns: 3,
-            child: GestureDetector(
-              onTap: () {
-                BlocProvider.of<CategoriesCubit>(context)
-                    .changeCategoryName(newCategoryName: 'IceTeas');
-              },
-              child: const Text(
-                '.Ice Teas',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 16,
+    return BlocBuilder<CategoriesCubit, CategoriesState>(
+      builder: (context, state) {
+        if (state is CategoriesSuccess) {
+          return Container(
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(70),
                 ),
-              ),
-            ),
-          ),
-          const Spacer(),
-          RotatedBox(
-            quarterTurns: 3,
-            child: GestureDetector(
-              onTap: () {
-                BlocProvider.of<CategoriesCubit>(context)
-                    .changeCategoryName(newCategoryName: 'Hot Coffee');
-              },
-              child: const Text(
-                '.Hot Coffee',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 16,
-                  color: Colors.white,
+                color: Color(0xffA52A2A)),
+            width: 60,
+            height: 612,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Spacer(),
+                RotatedBox(
+                  quarterTurns: 3,
+                  child: GestureDetector(
+                    onTap: () {
+                      BlocProvider.of<CategoriesCubit>(context)
+                          .changeCategoryName(
+                        newCategoryName: 'IceTeas',
+                        newFlag1: 0xffFFFFFF,
+                        newFlag2: 0xff000000,
+                        newFlag3: 0xff000000,
+                        newFlag4: 0xff000000,
+                        newFlag5: 0xff000000,
+                      );
+                    },
+                    child: Text(
+                      '.Ice Teas',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: Color(state.flag1),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ),
-          const Spacer(),
-          GestureDetector(
-            onTap: () {
-              BlocProvider.of<CategoriesCubit>(context)
-                  .changeCategoryName(newCategoryName: 'Hot Teas');
-            },
-            child: const RotatedBox(
-              quarterTurns: 3,
-              child: Text(
-                '.Hot Teas',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 16,
+                const Spacer(),
+                RotatedBox(
+                  quarterTurns: 3,
+                  child: GestureDetector(
+                    onTap: () {
+                      BlocProvider.of<CategoriesCubit>(context)
+                          .changeCategoryName(
+                        newCategoryName: 'Hot Coffee',
+                        newFlag1: 0xff000000,
+                        newFlag2: 0xffFFFFFF,
+                        newFlag3: 0xff000000,
+                        newFlag4: 0xff000000,
+                        newFlag5: 0xff000000,
+                      );
+                    },
+                    child: Text(
+                      '.Hot Coffee',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: Color(state.flag2),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ),
-          const Spacer(),
-          GestureDetector(
-            onTap: () {
-              BlocProvider.of<CategoriesCubit>(context)
-                  .changeCategoryName(newCategoryName: 'Drinks');
-            },
-            child: const RotatedBox(
-              quarterTurns: 3,
-              child: Text(
-                '.Drinks',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 16,
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    BlocProvider.of<CategoriesCubit>(context)
+                        .changeCategoryName(
+                      newCategoryName: 'Hot Teas',
+                      newFlag1: 0xff000000,
+                      newFlag2: 0xff000000,
+                      newFlag3: 0xffFFFFFF,
+                      newFlag4: 0xff000000,
+                      newFlag5: 0xff000000,
+                    );
+                  },
+                  child: RotatedBox(
+                    quarterTurns: 3,
+                    child: Text(
+                      '.Hot Teas',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: Color(state.flag3),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ),
-          const Spacer(),
-          GestureDetector(
-            onTap: () {
-              BlocProvider.of<CategoriesCubit>(context)
-                  .changeCategoryName(newCategoryName: 'Bakery');
-            },
-            child: const RotatedBox(
-              quarterTurns: 3,
-              child: Text(
-                '.Bakery',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 16,
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    BlocProvider.of<CategoriesCubit>(context)
+                        .changeCategoryName(
+                      newCategoryName: 'Drinks',
+                      newFlag1: 0xff000000,
+                      newFlag2: 0xff000000,
+                      newFlag3: 0xff000000,
+                      newFlag4: 0xffFFFFFF,
+                      newFlag5: 0xff000000,
+                    );
+                  },
+                  child: RotatedBox(
+                    quarterTurns: 3,
+                    child: Text(
+                      '.Drinks',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: Color(state.flag4),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    BlocProvider.of<CategoriesCubit>(context)
+                        .changeCategoryName(
+                      newCategoryName: 'Bakery',
+                      newFlag1: 0xff000000,
+                      newFlag2: 0xff000000,
+                      newFlag3: 0xff000000,
+                      newFlag4: 0xff000000,
+                      newFlag5: 0xffFFFFFF,
+                    );
+                  },
+                  child: RotatedBox(
+                    quarterTurns: 3,
+                    child: Text(
+                      '.Bakery',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: Color(state.flag5),
+                      ),
+                    ),
+                  ),
+                ),
+                const Spacer(
+                  flex: 2,
+                ),
+              ],
             ),
-          ),
-          const Spacer(
-            flex: 2,
-          ),
-        ],
-      ),
+          );
+        } else if (state is CategoriesInitial) {
+          return Container(
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(70),
+                ),
+                color: Color(0xffA52A2A)),
+            width: 60,
+            height: 612,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Spacer(),
+                RotatedBox(
+                  quarterTurns: 3,
+                  child: GestureDetector(
+                    onTap: () {
+                      BlocProvider.of<CategoriesCubit>(context)
+                          .changeCategoryName(
+                        newCategoryName: 'IceTeas',
+                        newFlag1: 0xffFFFFFF,
+                        newFlag2: 0xff000000,
+                        newFlag3: 0xff000000,
+                        newFlag4: 0xff000000,
+                        newFlag5: 0xff000000,
+                      );
+                    },
+                    child: Text(
+                      '.Ice Teas',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: Color(state.flag1),
+                      ),
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                RotatedBox(
+                  quarterTurns: 3,
+                  child: GestureDetector(
+                    onTap: () {
+                      BlocProvider.of<CategoriesCubit>(context)
+                          .changeCategoryName(
+                        newCategoryName: 'Hot Coffee',
+                        newFlag1: 0xff000000,
+                        newFlag2: 0xffFFFFFF,
+                        newFlag3: 0xff000000,
+                        newFlag4: 0xff000000,
+                        newFlag5: 0xff000000,
+                      );
+                    },
+                    child: Text(
+                      '.Hot Coffee',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: Color(state.flag2),
+                      ),
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    BlocProvider.of<CategoriesCubit>(context)
+                        .changeCategoryName(
+                      newCategoryName: 'Hot Teas',
+                      newFlag1: 0xff000000,
+                      newFlag2: 0xff000000,
+                      newFlag3: 0xffFFFFFF,
+                      newFlag4: 0xff000000,
+                      newFlag5: 0xff000000,
+                    );
+                  },
+                  child: RotatedBox(
+                    quarterTurns: 3,
+                    child: Text(
+                      '.Hot Teas',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: Color(state.flag3),
+                      ),
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    BlocProvider.of<CategoriesCubit>(context)
+                        .changeCategoryName(
+                      newCategoryName: 'Drinks',
+                      newFlag1: 0xff000000,
+                      newFlag2: 0xff000000,
+                      newFlag3: 0xff000000,
+                      newFlag4: 0xffFFFFFF,
+                      newFlag5: 0xff000000,
+                    );
+                  },
+                  child: RotatedBox(
+                    quarterTurns: 3,
+                    child: Text(
+                      '.Drinks',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: Color(state.flag4),
+                      ),
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    BlocProvider.of<CategoriesCubit>(context)
+                        .changeCategoryName(
+                      newCategoryName: 'Bakery',
+                      newFlag1: 0xff000000,
+                      newFlag2: 0xff000000,
+                      newFlag3: 0xff000000,
+                      newFlag4: 0xff000000,
+                      newFlag5: 0xffFFFFFF,
+                    );
+                  },
+                  child: RotatedBox(
+                    quarterTurns: 3,
+                    child: Text(
+                      '.Bakery',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: Color(state.flag5),
+                      ),
+                    ),
+                  ),
+                ),
+                const Spacer(
+                  flex: 2,
+                ),
+              ],
+            ),
+          );
+        } else {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
     );
   }
 }
