@@ -1,10 +1,13 @@
+import 'package:coffee_app/models/product_model.dart';
 import 'package:coffee_app/screens/card_page.dart';
 import 'package:flutter/material.dart';
 
 class GoToCard extends StatelessWidget {
   const GoToCard({
     super.key,
+    required this.productModel,
   });
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,9 @@ class GoToCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return const CardPage();
+              return CardPage(
+                productModel: productModel,
+              );
             },
           ),
         );
@@ -28,17 +33,17 @@ class GoToCard extends StatelessWidget {
           ),
         ),
         width: double.infinity,
-        child: const Column(
+        child: Column(
           children: [
             Text(
-              r'$5.99',
-              style: TextStyle(
+              r'$' '${productModel.price}',
+              style: const TextStyle(
                 color: Colors.white,
                 fontFamily: 'Poppins',
                 fontSize: 20,
               ),
             ),
-            Text(
+            const Text(
               'Add to card',
               style: TextStyle(
                 color: Colors.white,

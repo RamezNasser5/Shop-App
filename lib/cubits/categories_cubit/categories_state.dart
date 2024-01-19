@@ -23,6 +23,7 @@ final class CategoriesInitial extends CategoriesState {
 
 final class CategoriesSuccess extends CategoriesState {
   final String categoryName;
+
   final int flag1;
   final int flag2;
   final int flag3;

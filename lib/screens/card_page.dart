@@ -1,9 +1,12 @@
+import 'package:coffee_app/models/product_model.dart';
 import 'package:coffee_app/widgets/card_detailes_product.dart';
 import 'package:coffee_app/widgets/request_container.dart';
 import 'package:flutter/material.dart';
 
 class CardPage extends StatelessWidget {
-  const CardPage({super.key});
+  const CardPage({super.key, required this.productModel});
+
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +123,9 @@ class CardPage extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const RequestContainer()
+          RequestContainer(
+            productModel: productModel,
+          )
         ],
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:coffee_app/models/product_model.dart';
 import 'package:coffee_app/widgets/add_and_delete.dart';
 import 'package:coffee_app/widgets/box_sizes.dart';
 import 'package:coffee_app/widgets/go_to_card.dart';
@@ -5,7 +6,8 @@ import 'package:coffee_app/widgets/rounded_shape.dart';
 import 'package:flutter/material.dart';
 
 class DetailesContainer extends StatelessWidget {
-  const DetailesContainer({super.key});
+  const DetailesContainer({super.key, required this.productModel});
+  final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,9 +20,9 @@ class DetailesContainer extends StatelessWidget {
         ),
       ),
       width: double.infinity,
-      child: const Column(
+      child: Column(
         children: [
-          Text(
+          const Text(
             'Ingredients',
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
@@ -28,29 +30,31 @@ class DetailesContainer extends StatelessWidget {
               fontFamily: 'OrelegaOne-Regular',
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          RoundedShape(),
-          Text(
+          const RoundedShape(),
+          const Text(
             'Coffee Size',
             style: TextStyle(
               fontSize: 20,
               fontFamily: 'Poppins',
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          BoxSizes(),
-          SizedBox(
+          const BoxSizes(),
+          const SizedBox(
             height: 30,
           ),
-          AddAndDelete(),
-          SizedBox(
+          const AddAndDelete(),
+          const SizedBox(
             height: 20,
           ),
-          GoToCard(),
+          GoToCard(
+            productModel: productModel,
+          ),
         ],
       ),
     );

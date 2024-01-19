@@ -1,10 +1,14 @@
+import 'package:coffee_app/models/product_model.dart';
 import 'package:coffee_app/widgets/go_to_card.dart';
 import 'package:flutter/material.dart';
 
 class RequestContainer extends StatelessWidget {
   const RequestContainer({
     super.key,
+    required this.productModel,
   });
+
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +22,12 @@ class RequestContainer extends StatelessWidget {
           topRight: Radius.elliptical(200, 150),
         ),
       ),
-      child: const Column(
+      child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 120,
           ),
-          Row(
+          const Row(
             children: [
               SizedBox(
                 width: 23,
@@ -51,14 +55,14 @@ class RequestContainer extends StatelessWidget {
               ),
             ],
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25.0),
             child: Divider(
               color: Colors.white,
               thickness: 3,
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 15.0),
             child: Row(
               children: [
@@ -89,14 +93,14 @@ class RequestContainer extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25.0),
             child: Divider(
               color: Colors.white,
               thickness: 3,
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 15.0),
             child: Row(
               children: [
@@ -127,14 +131,14 @@ class RequestContainer extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25.0),
             child: Divider(
               color: Colors.white,
               thickness: 3,
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 15.0),
             child: Row(
               children: [
@@ -165,17 +169,19 @@ class RequestContainer extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25.0),
             child: Divider(
               color: Colors.white,
               thickness: 3,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 37,
           ),
-          GoToCard()
+          GoToCard(
+            productModel: productModel,
+          )
         ],
       ),
     );

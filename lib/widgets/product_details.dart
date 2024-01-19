@@ -9,12 +9,16 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //print('url image ........ ${productModel.urlImage}');
+
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
       child: GestureDetector(
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return const DetailesPage();
+            return DetailesPage(
+              productModel: productModel,
+            );
           }));
         },
         child: Stack(
@@ -85,16 +89,15 @@ class ProductDetails extends StatelessWidget {
                 ),
               ),
             ),
-            const Positioned(
-              left: 95,
-              bottom: 120,
-              child: CircleAvatar(
-                radius: 25,
-                backgroundImage: AssetImage(
-                  'assets/4.jpeg',
-                ),
-              ),
-            ),
+            Positioned(
+                left: 95,
+                bottom: 120,
+                child: CircleAvatar(
+                  radius: 25,
+                  backgroundImage: AssetImage(
+                    productModel.urlImage,
+                  ),
+                )),
             Positioned(
               left: 120,
               top: 90,

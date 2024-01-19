@@ -1,85 +1,34 @@
-import 'package:coffee_app/widgets/detailes_container.dart';
+import 'package:coffee_app/cubits/detailes_cubit/detailes_cubit.dart';
+import 'package:coffee_app/models/product_model.dart';
+import 'package:coffee_app/widgets/initial_stack.dart';
+import 'package:coffee_app/widgets/success_stack.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DetailesPage extends StatelessWidget {
-  const DetailesPage({super.key});
+  const DetailesPage({super.key, required this.productModel});
+
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset(
-            'assets/3.jpeg',
-            fit: BoxFit.cover,
-            height: double.infinity,
-          ),
-          const Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: DetailesContainer(),
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            top: 40,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6),
-                  child: Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      color: Colors.black,
-                    ),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                        size: 25,
-                      ),
-                    ),
-                  ),
-                ),
-                const Text(
-                  'Cappucino',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Poppins',
-                    fontSize: 20,
-                  ),
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6),
-                  child: Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      color: Colors.black,
-                    ),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.favorite,
-                        color: Colors.white,
-                        size: 25,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+    return BlocProvider(
+      create: (context) => DetailesCubit(),
+      child: Scaffold(body: BlocBuilder<DetailesCubit, DetailesState>(
+        builder: (context, state) {
+          if (state is DetailesSuccess) {
+            return SuccessStack(
+              productModel: productModel,
+              state: state,
+            );
+          } else if (state is DetailesInitial) {
+            return InitialStack(productModel: productModel, state: state);
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      )),
     );
   }
 }

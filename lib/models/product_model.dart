@@ -5,13 +5,14 @@ class ProductModel {
   final String description;
   final String price;
   final String rate;
+  final String urlImage;
 
-  const ProductModel({
-    required this.title,
-    required this.description,
-    required this.price,
-    required this.rate,
-  });
+  const ProductModel(
+      {required this.title,
+      required this.description,
+      required this.price,
+      required this.rate,
+      required this.urlImage});
 
   factory ProductModel.fromFirestore(DocumentSnapshot doc) {
     return ProductModel(
@@ -19,6 +20,7 @@ class ProductModel {
       description: doc['description'] ?? '',
       price: doc['price'] ?? '',
       rate: doc['rate'] ?? '',
+      urlImage: doc['urlImage'] ?? 'assets/6.jpg',
     );
   }
 }
