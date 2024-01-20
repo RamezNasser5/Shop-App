@@ -31,7 +31,9 @@ class CardPage extends StatelessWidget {
                     color: const Color(0xffA52A2A),
                   ),
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: const Icon(
                       Icons.arrow_back,
                       color: Colors.white,
@@ -112,13 +114,18 @@ class CardPage extends StatelessWidget {
               ],
             ),
           ),
-          const CardProductDetailes(),
-          const SizedBox(
-            height: 10,
-          ),
-          const CardProductDetailes(),
-          const SizedBox(
-            height: 10,
+          Expanded(
+            child: SizedBox(
+              height: 100,
+              width: MediaQuery.of(context).size.width,
+              child: ListView.builder(
+                physics: BouncingScrollPhysics(),
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  return CardProductDetailes();
+                },
+              ),
+            ),
           ),
           const SizedBox(
             height: 10,
