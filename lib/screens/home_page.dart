@@ -1,5 +1,5 @@
 import 'package:coffee_app/cubits/add_product_cubit/add_product_cubit.dart';
-import 'package:coffee_app/cubits/categories_cubit/categories_cubit.dart';
+import 'package:coffee_app/screens/search_page.dart';
 import 'package:coffee_app/widgets/bottom_navigator_bar.dart';
 import 'package:coffee_app/widgets/column_navigation_bar.dart';
 import 'package:coffee_app/widgets/custom_search_icon.dart';
@@ -13,7 +13,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => CategoriesCubit()),
         BlocProvider(create: (context) => AddProductCubit()),
       ],
       child: Scaffold(
@@ -23,9 +22,19 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           toolbarHeight: 85,
           backgroundColor: Colors.transparent,
-          actions: const [
+          actions: [
             CustomSearchIcon(
               icons: Icons.search,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const SearchPage();
+                    },
+                  ),
+                );
+              },
             ),
           ],
           centerTitle: true,
