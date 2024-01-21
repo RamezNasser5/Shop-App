@@ -70,6 +70,8 @@ class DetailesContainer extends StatelessWidget {
                 ),
               );
             },
+            title: 'Add to Card',
+            price: double.parse(productModel.price),
           ),
         ],
       ),

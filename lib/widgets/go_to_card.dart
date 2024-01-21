@@ -6,9 +6,13 @@ class GoToCard extends StatelessWidget {
     super.key,
     required this.productModel,
     required this.onTap,
+    required this.title,
+    required this.price,
   });
   final ProductModel productModel;
   final void Function()? onTap;
+  final String title;
+  final double price;
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +30,16 @@ class GoToCard extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              r'$' '${productModel.price}',
+              r'$' '$price',
               style: const TextStyle(
                 color: Colors.white,
                 fontFamily: 'Poppins',
                 fontSize: 20,
               ),
             ),
-            const Text(
-              'Add to card',
-              style: TextStyle(
+            Text(
+              title,
+              style: const TextStyle(
                 color: Colors.white,
                 fontFamily: 'Poppins',
                 fontSize: 20,

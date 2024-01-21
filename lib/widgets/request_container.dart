@@ -197,6 +197,8 @@ class RequestContainer extends StatelessWidget {
                 ),
               );
             },
+            title: 'Add Request',
+            price: state.totalPrice + 1,
           )
         ],
       ),
