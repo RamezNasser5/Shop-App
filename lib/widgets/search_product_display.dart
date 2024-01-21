@@ -16,7 +16,6 @@ class SearchProductDisplay extends StatelessWidget {
       builder: (context, state) {
         if (state is SearchProductSuccess) {
           if (state.categoryName != '') {
-            print(state.categoryName);
             return Expanded(
               child: SizedBox(
                 height: 500,

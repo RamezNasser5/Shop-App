@@ -40,7 +40,7 @@ class _SearchPageState extends State<SearchPage> {
             const SizedBox(
               height: 20,
             ),
-            SearchProductDisplay()
+            const SearchProductDisplay()
           ],
         ),
       ),
