@@ -79,9 +79,9 @@ class SuccessStack extends StatelessWidget {
                   ),
                   child: IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.favorite,
-                      color: Color(state.favioriteColor),
+                      color: Colors.white,
                       size: 25,
                     ),
                   ),

@@ -15,11 +15,16 @@ class ProductDetails extends StatelessWidget {
       padding: const EdgeInsets.only(top: 20.0),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return DetailesPage(
-              productModel: productModel,
-            );
-          }));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return DetailesPage(
+                  productModel: productModel,
+                );
+              },
+            ),
+          );
         },
         child: Stack(
           clipBehavior: Clip.none,

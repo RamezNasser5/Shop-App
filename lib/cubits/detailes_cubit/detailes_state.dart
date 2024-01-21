@@ -12,13 +12,11 @@ final class DetailesInitial extends DetailesState {
 }
 
 final class DetailesSuccess extends DetailesState {
-  final int favioriteColor;
   final int small;
   final int medium;
   final int large;
 
   DetailesSuccess({
-    required this.favioriteColor,
     required this.small,
     required this.medium,
     required this.large,

@@ -1,7 +1,6 @@
 import 'package:coffee_app/cubits/card_products_cubit.dart/card_products_cubit.dart';
 import 'package:coffee_app/models/product_model.dart';
 import 'package:coffee_app/screens/card_page.dart';
-import 'package:coffee_app/widgets/add_and_delete.dart';
 import 'package:coffee_app/widgets/box_sizes.dart';
 import 'package:coffee_app/widgets/go_to_card.dart';
 import 'package:coffee_app/widgets/rounded_shape.dart';
@@ -45,15 +44,15 @@ class DetailesContainer extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 30,
           ),
           const BoxSizes(),
           const SizedBox(
             height: 30,
           ),
-          const AddAndDelete(),
+          //const AddAndDelete(),
           const SizedBox(
-            height: 20,
+            height: 52,
           ),
           GoToCard(
             productModel: productModel,

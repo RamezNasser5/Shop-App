@@ -2,7 +2,6 @@ import 'package:coffee_app/cubits/detailes_cubit/detailes_cubit.dart';
 import 'package:coffee_app/models/product_model.dart';
 import 'package:coffee_app/widgets/detailes_container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InitialStack extends StatelessWidget {
   const InitialStack(
@@ -76,14 +75,7 @@ class InitialStack extends StatelessWidget {
                     color: Colors.black,
                   ),
                   child: IconButton(
-                    onPressed: () {
-                      BlocProvider.of<DetailesCubit>(context).changeColor(
-                        newFavioriteColor: 0xffA52A2A,
-                        newLarge: 0xffFFFFFF,
-                        newMedium: 0xffA52A2A,
-                        newSmall: 0xffFFFFFF,
-                      );
-                    },
+                    onPressed: () {},
                     icon: Icon(
                       Icons.favorite,
                       color: Color(state.favioriteColor),

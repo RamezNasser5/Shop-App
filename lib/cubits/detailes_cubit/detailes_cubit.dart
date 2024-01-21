@@ -9,14 +9,12 @@ class DetailesCubit extends Cubit<DetailesState> {
           favioriteColor: 0xffFFFFFF,
         ));
   changeColor({
-    required int newFavioriteColor,
     required int newSmall,
     required int newMedium,
     required int newLarge,
   }) {
     emit(
       DetailesSuccess(
-        favioriteColor: newFavioriteColor,
         small: newSmall,
         medium: newMedium,
         large: newLarge,

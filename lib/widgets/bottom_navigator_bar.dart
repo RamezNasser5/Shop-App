@@ -1,4 +1,9 @@
+import 'package:coffee_app/cubits/card_products_cubit.dart/card_products_cubit.dart';
+import 'package:coffee_app/models/product_model.dart';
+import 'package:coffee_app/screens/card_page.dart';
+import 'package:coffee_app/screens/deatails_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BottomNavigatorBar extends StatelessWidget {
   const BottomNavigatorBar({super.key});
@@ -15,8 +20,8 @@ class BottomNavigatorBar extends StatelessWidget {
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: const Color(0xff411530),
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
+          items: <BottomNavigationBarItem>[
+            const BottomNavigationBarItem(
               icon: Icon(
                 Icons.shop,
                 color: Colors.black,
@@ -24,20 +29,61 @@ class BottomNavigatorBar extends StatelessWidget {
               label: 'Shopping',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.book_online_outlined,
-                color: Colors.black,
+              icon: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return DetailesPage(
+                          productModel: ProductModel(
+                              title: 'Ice Teas',
+                              description: 'with milk',
+                              price: '3.33',
+                              rate: '4.6',
+                              urlImage: 'assets/1.jpeg'),
+                        );
+                      },
+                    ),
+                  );
+                },
+                child: const Icon(
+                  Icons.book_online_outlined,
+                  color: Colors.black,
+                ),
               ),
               label: 'Details',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.car_crash,
-                color: Colors.black,
+              icon: GestureDetector(
+                onTap: () {
+                  BlocProvider.of<CardProductsCubit>(context)
+                      .fetchAllProducts();
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return CardPage(
+                          productModel: ProductModel(
+                              title: 'Ice Teas',
+                              description: 'with milk',
+                              price: '3.33',
+                              rate: '4.6',
+                              urlImage: 'assets/1.jpeg'),
+                        );
+                      },
+                    ),
+                  );
+                },
+                child: const Icon(
+                  Icons.car_crash,
+                  color: Colors.black,
+                ),
               ),
               label: 'Cart',
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(
                 Icons.person,
                 color: Colors.black,

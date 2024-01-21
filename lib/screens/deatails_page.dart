@@ -12,9 +12,8 @@ class DetailesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => DetailesCubit(),
-      child: Scaffold(body: BlocBuilder<DetailesCubit, DetailesState>(
+    return Scaffold(
+      body: BlocBuilder<DetailesCubit, DetailesState>(
         builder: (context, state) {
           if (state is DetailesSuccess) {
             return SuccessStack(
@@ -28,7 +27,7 @@ class DetailesPage extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         },
-      )),
+      ),
     );
   }
 }
