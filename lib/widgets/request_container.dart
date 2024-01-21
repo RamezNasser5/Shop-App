@@ -1,14 +1,19 @@
+import 'package:coffee_app/cubits/card_products_cubit.dart/card_products_cubit.dart';
 import 'package:coffee_app/models/product_model.dart';
+import 'package:coffee_app/screens/request_complete.dart';
 import 'package:coffee_app/widgets/go_to_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RequestContainer extends StatelessWidget {
   const RequestContainer({
     super.key,
     required this.productModel,
+    required this.state,
   });
 
   final ProductModel productModel;
+  final CardProductsSuccess state;
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +32,12 @@ class RequestContainer extends StatelessWidget {
           const SizedBox(
             height: 120,
           ),
-          const Row(
+          Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 23,
               ),
-              Text(
+              const Text(
                 'Subtotal',
                 style: TextStyle(
                   color: Color(0xffFFFFFF),
@@ -41,12 +46,12 @@ class RequestContainer extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
-              SizedBox(
-                width: 245,
+              const SizedBox(
+                width: 200,
               ),
               Text(
-                r'$ 8',
-                style: TextStyle(
+                r'$ ' '${state.totalPrice}',
+                style: const TextStyle(
                   color: Color(0xffFFFFFF),
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w700,
@@ -79,10 +84,10 @@ class RequestContainer extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 190,
+                  width: 155,
                 ),
                 Text(
-                  r'$ 8',
+                  r'$ 0.5',
                   style: TextStyle(
                     color: Color(0xffFFFFFF),
                     fontFamily: 'Poppins',
@@ -117,10 +122,10 @@ class RequestContainer extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 275,
+                  width: 240,
                 ),
                 Text(
-                  r'$ 8',
+                  r'$ 0.5',
                   style: TextStyle(
                     color: Color(0xffFFFFFF),
                     fontFamily: 'Poppins',
@@ -138,14 +143,14 @@ class RequestContainer extends StatelessWidget {
               thickness: 3,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(top: 15.0),
+          Padding(
+            padding: const EdgeInsets.only(top: 15.0),
             child: Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 25,
                 ),
-                Text(
+                const Text(
                   'Total',
                   style: TextStyle(
                     color: Color(0xffFFFFFF),
@@ -154,12 +159,12 @@ class RequestContainer extends StatelessWidget {
                     fontSize: 20,
                   ),
                 ),
-                SizedBox(
-                  width: 280,
+                const SizedBox(
+                  width: 225,
                 ),
                 Text(
-                  r'$ 8',
-                  style: TextStyle(
+                  r'$ ' '${state.totalPrice + 1}',
+                  style: const TextStyle(
                     color: Color(0xffFFFFFF),
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w700,
@@ -181,6 +186,17 @@ class RequestContainer extends StatelessWidget {
           ),
           GoToCard(
             productModel: productModel,
+            onTap: () {
+              BlocProvider.of<CardProductsCubit>(context).fetchAllProducts();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const RequestComplete();
+                  },
+                ),
+              );
+            },
           )
         ],
       ),

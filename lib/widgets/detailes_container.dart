@@ -1,9 +1,12 @@
+import 'package:coffee_app/cubits/card_products_cubit.dart/card_products_cubit.dart';
 import 'package:coffee_app/models/product_model.dart';
+import 'package:coffee_app/screens/card_page.dart';
 import 'package:coffee_app/widgets/add_and_delete.dart';
 import 'package:coffee_app/widgets/box_sizes.dart';
 import 'package:coffee_app/widgets/go_to_card.dart';
 import 'package:coffee_app/widgets/rounded_shape.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DetailesContainer extends StatelessWidget {
   const DetailesContainer({super.key, required this.productModel});
@@ -54,6 +57,19 @@ class DetailesContainer extends StatelessWidget {
           ),
           GoToCard(
             productModel: productModel,
+            onTap: () {
+              BlocProvider.of<CardProductsCubit>(context).fetchAllProducts();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return CardPage(
+                      productModel: productModel,
+                    );
+                  },
+                ),
+              );
+            },
           ),
         ],
       ),

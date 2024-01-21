@@ -1,10 +1,15 @@
-import 'package:coffee_app/widgets/add_and_delete.dart';
+import 'package:coffee_app/cubits/card_products_cubit.dart/card_products_cubit.dart';
+import 'package:coffee_app/models/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CardProductDetailes extends StatelessWidget {
   const CardProductDetailes({
     super.key,
+    required this.productModel,
   });
+
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +26,7 @@ class CardProductDetailes extends StatelessWidget {
         ]),
         width: 370,
         height: 100,
-        child: const Card(
+        child: Card(
           elevation: 5,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -29,7 +34,7 @@ class CardProductDetailes extends StatelessWidget {
               CircleAvatar(
                 radius: 35,
                 backgroundImage: AssetImage(
-                  'assets/4.jpeg',
+                  productModel.urlImage,
                 ),
               ),
               Column(
@@ -37,35 +42,54 @@ class CardProductDetailes extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Expresso',
-                    style: TextStyle(
+                    productModel.title,
+                    style: const TextStyle(
                       fontSize: 18,
                       fontFamily: 'Poppins',
                     ),
                   ),
                   Text(
-                    'with milk',
-                    style: TextStyle(
+                    productModel.description,
+                    style: const TextStyle(
                       fontSize: 14,
                       color: Color(0xff542E45),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Text(
-                    r'$' '3.50',
-                    style: TextStyle(
+                    r'$' '${productModel.price}',
+                    style: const TextStyle(
                         fontSize: 16,
                         fontFamily: 'Poppins',
                         color: Color(0xffA52A2A)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   )
                 ],
               ),
-              AddAndDelete(),
+              GestureDetector(
+                onTap: () {
+                  productModel.delete();
+                  BlocProvider.of<CardProductsCubit>(context)
+                      .fetchAllProducts();
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: const Color(0xffA52A2A),
+                    ),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: const Icon(
+                    Icons.delete,
+                    color: Color(0xffA52A2A),
+                    size: 40,
+                  ),
+                ),
+              ),
             ],
           ),
         ),

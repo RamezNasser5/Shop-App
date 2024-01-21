@@ -1,29 +1,19 @@
 import 'package:coffee_app/models/product_model.dart';
-import 'package:coffee_app/screens/card_page.dart';
 import 'package:flutter/material.dart';
 
 class GoToCard extends StatelessWidget {
   const GoToCard({
     super.key,
     required this.productModel,
+    required this.onTap,
   });
   final ProductModel productModel;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return CardPage(
-                productModel: productModel,
-              );
-            },
-          ),
-        );
-      },
+      onTap: onTap,
       child: Container(
         decoration: const BoxDecoration(
           color: Color(0xff542E45),

@@ -1,6 +1,8 @@
+import 'package:coffee_app/cubits/add_product_cubit/add_product_cubit.dart';
 import 'package:coffee_app/models/product_model.dart';
 import 'package:coffee_app/screens/deatails_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({super.key, required this.productModel});
@@ -9,8 +11,6 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //print('url image ........ ${productModel.urlImage}');
-
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
       child: GestureDetector(
@@ -111,9 +111,15 @@ class ProductDetails extends StatelessWidget {
                   ),
                   color: Color(0xffA52A2A),
                 ),
-                child: const Icon(
-                  Icons.add,
-                  color: Colors.white,
+                child: GestureDetector(
+                  onTap: () {
+                    BlocProvider.of<AddProductCubit>(context)
+                        .addProduct(productModel);
+                  },
+                  child: const Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             )

@@ -1,3 +1,4 @@
+import 'package:coffee_app/cubits/add_product_cubit/add_product_cubit.dart';
 import 'package:coffee_app/cubits/categories_cubit/categories_cubit.dart';
 import 'package:coffee_app/widgets/bottom_navigator_bar.dart';
 import 'package:coffee_app/widgets/column_navigation_bar.dart';
@@ -10,8 +11,11 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CategoriesCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => CategoriesCubit()),
+        BlocProvider(create: (context) => AddProductCubit()),
+      ],
       child: Scaffold(
         drawer: const Center(
           child: Text('Drawer'),
