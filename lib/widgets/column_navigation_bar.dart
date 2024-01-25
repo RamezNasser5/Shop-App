@@ -19,20 +19,10 @@ class ColumnBehindNavigationBar extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.only(right: 120),
-          child: Text(
-            'Ramez Nasser',
-            style: TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: 16,
-            ),
-          ),
-        ),
         Row(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 70.0),
+              padding: EdgeInsets.only(top: 95.0),
               child: SideDrinks(),
             ),
             ProductsDisplay(),

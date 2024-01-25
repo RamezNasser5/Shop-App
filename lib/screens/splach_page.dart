@@ -1,4 +1,4 @@
-import 'package:coffee_app/screens/home_page.dart';
+import 'package:coffee_app/screens/Login_page.dart';
 import 'package:flutter/material.dart';
 
 class SplachPage extends StatelessWidget {
@@ -26,7 +26,7 @@ class SplachPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
-                  return const HomePage();
+                  return LoginPage();
                 }));
               },
               color: const Color(0xff3A2F2F),

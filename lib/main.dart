@@ -1,3 +1,4 @@
+import 'package:coffee_app/blocs/auth_bloc/auth_bloc.dart';
 import 'package:coffee_app/cubits/add_product_cubit/add_product_cubit.dart';
 import 'package:coffee_app/cubits/card_products_cubit.dart/card_products_cubit.dart';
 import 'package:coffee_app/cubits/categories_cubit/categories_cubit.dart';
@@ -31,7 +32,8 @@ class CoffeeApp extends StatelessWidget {
         BlocProvider(create: (context) => CardProductsCubit()),
         BlocProvider(create: (context) => DetailesCubit()),
         BlocProvider(create: (context) => CategoriesCubit()),
-        BlocProvider(create: (context) => SearchProductCubit())
+        BlocProvider(create: (context) => SearchProductCubit()),
+        BlocProvider(create: (context) => AuthBloc()),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
