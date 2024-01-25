@@ -90,7 +90,7 @@ flutter:
     - family: Poppins
       fonts:
         - asset: fonts/Poppins-Bold.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+        - asset: fonts/NightPumpkind-1GpGv.ttf
   #         style: italic
     - family: OrelegaOne-Regular
       fonts:
