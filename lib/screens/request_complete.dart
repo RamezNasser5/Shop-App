@@ -11,7 +11,7 @@ class RequestComplete extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image(
-              image: AssetImage('assets/30.jpg'),
+              image: AssetImage('assets/true-icon.jpg'),
               width: 150,
               height: 150,
             ),

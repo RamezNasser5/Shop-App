@@ -30,7 +30,7 @@ class RequestContainer extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(
-            height: 120,
+            height: 108,
           ),
           Row(
             children: [

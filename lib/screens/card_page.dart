@@ -12,7 +12,7 @@ class CardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(child: Scaffold(
       body: BlocBuilder<CardProductsCubit, CardProductsState>(
         builder: (context, state) {
           if (state is CardProductsSuccess) {
@@ -140,7 +140,7 @@ class CardPage extends StatelessWidget {
           );
         },
       ),
-    );
+    ),);
   }
 }
 
