@@ -13,12 +13,10 @@ class AddProductCubit extends Cubit<AddProductState> {
   addProduct(ProductModel productModel) async {
     var productsBox = await Hive.openBox<ProductModel>('product');
 
-    // Check if the product already exists in the box based on the product name
     if (productsBox.values.any(
         (existingProduct) => existingProduct.title == productModel.title)) {
       print('Product already exists in the box.');
     } else {
-      // If the product doesn't exist, add it to the box
       productsBox.add(productModel);
       print('Product added successfully.');
       emit(AddProductSuccess());

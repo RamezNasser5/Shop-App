@@ -181,8 +181,8 @@ class RequestContainer extends StatelessWidget {
               thickness: 3,
             ),
           ),
-          const SizedBox(
-            height: 37,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.056,
           ),
           GoToCard(
             productModel: productModel,

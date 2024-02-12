@@ -47,12 +47,8 @@ class DetailesContainer extends StatelessWidget {
             height: 30,
           ),
           const BoxSizes(),
-          // const SizedBox(
-          //   height: 30,
-          // ),
-          //const AddAndDelete(),
-           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.0778,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.0945,
           ),
           GoToCard(
             productModel: productModel,
