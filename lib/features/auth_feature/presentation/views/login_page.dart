@@ -23,7 +23,6 @@ class LoginPage extends StatelessWidget {
           isLoading = true;
         } else if (state is LoginSuccess) {
           isLoading = false;
-
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             return const HomePage();
           }));
@@ -95,6 +94,7 @@ class LoginPage extends StatelessWidget {
                   BlocProvider.of<AuthBloc>(context)
                       .add(LoginEvent(email: email!, password: password!));
                 },
+                isLoading: isLoading,
               )
             ],
           ),

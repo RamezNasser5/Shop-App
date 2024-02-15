@@ -1,5 +1,4 @@
 import 'package:coffee_app/features/auth_feature/presentation/manager/auth_bloc/auth_bloc.dart';
-import 'package:coffee_app/features/auth_feature/presentation/views/login_page.dart';
 import 'package:coffee_app/features/auth_feature/presentation/widgets/custom_login_button.dart';
 import 'package:coffee_app/features/auth_feature/presentation/widgets/custom_login_text.dart';
 import 'package:coffee_app/features/auth_feature/presentation/widgets/custom_starter_text_field.dart';
@@ -32,6 +31,7 @@ class SignUpPage extends StatelessWidget {
               content: Text(state.errorMessage),
             ),
           );
+          isLoading = false;
         }
       },
       builder: (context, state) {
@@ -82,9 +82,7 @@ class SignUpPage extends StatelessWidget {
               ),
               CustomLoginButton(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return LoginPage();
-                  }));
+                  Navigator.pop(context);
                 },
                 textFieldText: 'Sign Up',
                 text: 'Sign In here.',
@@ -92,7 +90,8 @@ class SignUpPage extends StatelessWidget {
                   BlocProvider.of<AuthBloc>(context)
                       .add(RegisterEvent(email: email!, password: password!));
                 },
-              )
+                isLoading: isLoading,
+              ),
             ],
           ),
         );

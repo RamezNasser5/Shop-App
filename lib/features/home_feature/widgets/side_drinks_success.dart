@@ -2,13 +2,13 @@ import 'package:coffee_app/features/home_feature/manager/cubits/categories_cubit
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SideDrinksInitial extends StatelessWidget {
-  const SideDrinksInitial({
+class SideDrinksSuccess extends StatelessWidget {
+  const SideDrinksSuccess({
     super.key,
     required this.state,
   });
 
-  final CategoriesInitial state;
+  final CategoriesSuccess state;
 
   @override
   Widget build(BuildContext context) {

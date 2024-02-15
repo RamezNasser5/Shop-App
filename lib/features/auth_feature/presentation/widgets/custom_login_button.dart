@@ -7,12 +7,14 @@ class CustomLoginButton extends StatelessWidget {
     required this.onPressed,
     required this.text,
     required this.onTap,
+    this.isLoading = false,
   });
 
   final String textFieldText;
   final String text;
   final void Function()? onPressed;
   final void Function()? onTap;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +28,18 @@ class CustomLoginButton extends StatelessWidget {
           color: const Color(0xff3A2F2F),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          child: Text(
-            textFieldText,
-            style: const TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontFamily: 'Poppins',
-            ),
-          ),
+          child: isLoading
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : Text(
+                  textFieldText,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontFamily: 'Poppins',
+                  ),
+                ),
         ),
         const SizedBox(
           height: 20,

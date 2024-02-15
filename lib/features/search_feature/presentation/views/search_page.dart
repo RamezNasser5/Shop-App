@@ -7,8 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
 
-  static String id = 'SearchPage';
-
   @override
   State<SearchPage> createState() => _SearchPageState();
 }
