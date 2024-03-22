@@ -33,7 +33,7 @@ class CoffeeApp extends StatelessWidget {
         BlocProvider(create: (context) => DetailesCubit()),
         BlocProvider(create: (context) => CategoriesCubit()),
         BlocProvider(create: (context) => SearchProductCubit()),
-        BlocProvider(create: (context) => AuthBloc()),
+        BlocProvider(create: (context) => AuthBloc()),        
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

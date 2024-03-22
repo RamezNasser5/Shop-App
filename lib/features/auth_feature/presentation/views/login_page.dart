@@ -32,6 +32,7 @@ class LoginPage extends StatelessWidget {
               content: Text(state.errorMessage),
             ),
           );
+          isLoading = false;
         }
       },
       builder: (context, state) {

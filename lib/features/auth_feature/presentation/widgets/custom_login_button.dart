@@ -29,9 +29,7 @@ class CustomLoginButton extends StatelessWidget {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: isLoading
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
+              ? const CircularProgressIndicator()
               : Text(
                   textFieldText,
                   style: const TextStyle(
