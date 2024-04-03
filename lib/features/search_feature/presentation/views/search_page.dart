@@ -4,14 +4,10 @@ import 'package:coffee_app/features/search_feature/presentation/widgets/search_p
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SearchPage extends StatefulWidget {
-  const SearchPage({super.key});
+// ignore: must_be_immutable
+class SearchPage extends StatelessWidget {
+  SearchPage({super.key});
 
-  @override
-  State<SearchPage> createState() => _SearchPageState();
-}
-
-class _SearchPageState extends State<SearchPage> {
   String? categuryName;
 
   @override
@@ -32,7 +28,7 @@ class _SearchPageState extends State<SearchPage> {
               onChange: (data) {
                 BlocProvider.of<SearchProductCubit>(context)
                     .getCategoryName(newCategoryName: data);
-                setState(() {});
+                
               },
             ),
             const SizedBox(
