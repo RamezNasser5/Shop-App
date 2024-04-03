@@ -22,7 +22,7 @@ class ColumnBehindNavigationBar extends StatelessWidget {
         Row(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 95.0),
+              padding: EdgeInsets.only(top: 85.0),
               child: SideDrinks(),
             ),
             ProductsDisplay(),
